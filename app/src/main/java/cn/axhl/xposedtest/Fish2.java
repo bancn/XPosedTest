@@ -29,6 +29,7 @@ public class Fish2 implements IXposedHookLoadPackage {
                             param.args[0] = 3010;
                             Object orderObj = param.args[1];
                             Class orderClzz =  orderObj.getClass();
+                            //添加宏参数
                             Object[] enumConstants = DKOrderStatusClass.getEnumConstants();
                             Method setDkOrderStatus = orderClzz.getMethod("setDkOrderStatus", DKOrderStatusClass);
                             setDkOrderStatus.invoke(orderObj, enumConstants[3]);
